@@ -51,17 +51,16 @@ struct BookingsView: View {
                                     .font(.subheadline)
                                     .foregroundColor(.black)
 
-                                HStack(spacing: 4) {
+                                VStack(alignment: .trailing, spacing: 2) {
                                     Text("Seats:")
                                         .font(.caption)
                                         .foregroundColor(.black)
-                                    ForEach(booking.ticket.seatIDs, id: \.self) { seat in
-                                        Text(seat)
-                                            .font(.caption)
-                                            .foregroundColor(.black)
-                                    }
+
+                                    FlexibleSeatGrid(seats: booking.ticket.seatIDs)
+                                        .frame(maxWidth: 120, alignment: .trailing)
                                 }
                             }
+
 
                             Button(action: {
                                 withAnimation {
@@ -96,3 +95,35 @@ struct BookingsView: View {
         }
     }
 }
+
+struct FlexibleSeatGrid: View {
+    let seats: [String]
+
+    var body: some View {
+        let rows = seats.chunked(into: 3)
+
+        VStack(alignment: .trailing, spacing: 2) {
+            ForEach(rows, id: \.self) { row in
+                HStack(spacing: 4) {
+                    ForEach(row, id: \.self) { seat in
+                        Text(seat)
+                            .font(.caption2)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(4)
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        stride(from: 0, to: count, by: size).map {
+            Array(self[$0..<Swift.min($0 + size, count)])
+        }
+    }
+}
+
