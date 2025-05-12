@@ -1,4 +1,4 @@
-# Cinema App
+# CineQuick
 
 Project Repository - https://github.com/IOS-Assignment-3-Cinema/IOS-Assignment-3
 
@@ -28,7 +28,7 @@ We have created an application that solves a real-world problem for a fictional 
 
 ## Project Overview
 
-The Cinema Booking Application is a SwiftUI-based project designed to provide a seamless movie booking experience. The application allows users to:
+The CineQuick is a SwiftUI-based project designed to provide a seamless movie booking experience. The application allows users to:
 
 - Browse and select movies from a list of popular titles fetched from The Movie Database (TMDB).
 - Choose showtimes and book tickets for their preferred movies.
