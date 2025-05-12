@@ -17,18 +17,12 @@ struct SettingsView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 24) {
-                    
-                    Text("User Settings")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 32)
-                        .padding(.horizontal)
-                    
                     VStack(spacing: 16) {
-                        CustomInputField(title: "Name", text: $name, keyboard: .default)
-                        CustomInputField(title: "Phone Number", text: $phoneNumber, keyboard: .phonePad)
-                        CustomInputField(title: "Email", text: $email, keyboard: .emailAddress)
+                        Group{
+                            CustomInputField(title: "Name", text: $name, keyboard: .default)
+                            CustomInputField(title: "Phone Number", text: $phoneNumber, keyboard: .phonePad)
+                            CustomInputField(title: "Email", text: $email, keyboard: .emailAddress)
+                        }.shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
                     }
                     .padding(.horizontal)
                     
@@ -72,8 +66,8 @@ struct SettingsView: View {
                     Spacer(minLength: 32)
                 }
             }
-            .background(Color(UIColor.systemGroupedBackground))
-            .navigationBarTitleDisplayMode(.inline)
+//            .background(Color(UIColor.systemGroupedBackground))
+            .navigationTitle("Settings")
             .onAppear {
                 name = UserDefaults.standard.string(forKey: userNameKey) ?? "Citizen"
                 phoneNumber = UserDefaults.standard.string(forKey: userPhoneNumberKey) ?? "0434567890"

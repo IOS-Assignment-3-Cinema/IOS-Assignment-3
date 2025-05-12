@@ -217,9 +217,3 @@ struct TimingSelectionView: View {
         .cornerRadius(12)
     }
 }
-
-struct TheatreShowtime: Identifiable {
-    let id = UUID()
-    let location: String
-    let time: String
-}

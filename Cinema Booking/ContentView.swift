@@ -27,7 +27,7 @@ struct ContentView: View {
                 case .movies:
                     MoviePickerView().environmentObject(navigationHelper)
                 case .bookings:
-                    BookingsView().navigationTitle("Bookings")
+                    BookingsView()
                 case .settings:
                     SettingsView()
             }
