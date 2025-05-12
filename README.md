@@ -1,6 +1,6 @@
 # Cinema App
 
-[Project Repository](https://github.com/IOS-Assignment-3-Cinema/IOS-Assignment-3)
+Project Repository - https://github.com/IOS-Assignment-3-Cinema/IOS-Assignment-3
 
 ## Project Details
 
