@@ -13,6 +13,15 @@ Project Repository - https://github.com/IOS-Assignment-3-Cinema/IOS-Assignment-3
 
 ---
 
+## Team Members
+
+| Student Name |
+|--------------|
+| Maheshwary Sawon |
+| Maksym Bui |
+| Soghra Yari |
+| Soorya Sanand |
+
 ## Introduction
 
 We have created an application that solves a real-world problem for a fictional user persona. We followed an iterative product design cycle to produce a minimum viable product. On the final day of class, we will demonstrate the product to fictional investors in a presentation.
