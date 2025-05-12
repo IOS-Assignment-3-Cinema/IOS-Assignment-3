@@ -142,15 +142,13 @@ struct YourBookingsView: View {
                                     .font(.subheadline)
                                     .foregroundColor(.black)
 
-                                HStack(spacing: 4) {
+                                VStack(alignment: .trailing, spacing: 2) {
                                     Text("Seats:")
                                         .font(.caption)
                                         .foregroundColor(.black)
-                                    ForEach(booking.ticket.seatIDs, id: \.self) { seat in
-                                        Text(seat)
-                                            .font(.caption)
-                                            .foregroundColor(.black)
-                                    }
+
+                                    FlexibleSeatGrid(seats: booking.ticket.seatIDs)
+                                        .frame(maxWidth: 120, alignment: .trailing)
                                 }
                             }
 

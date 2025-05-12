@@ -8,10 +8,11 @@ import SwiftUI
 struct TicketPurchaseView: View {
     @ObservedObject var viewModel: TicketPurchaseViewModel
     let showtime: TheatreShowtime
-    @State private var showingSuccessView = false
+
     @Environment(\.presentationMode) var presentationMode
-    @State private var navigateToHome = false
     @EnvironmentObject var navigationHelper: NavigationHelper
+
+    @State private var navigateToShopView = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -33,7 +34,7 @@ struct TicketPurchaseView: View {
                         showtime: showtime
                     )
                     bookings.append(booking)
-                    showingSuccessView = true
+                    navigateToShopView = true
                 }
             )
         }
@@ -46,23 +47,14 @@ struct TicketPurchaseView: View {
                     .foregroundColor(.blue)
             }
         }
-        .fullScreenCover(isPresented: $showingSuccessView) {
-            CheckoutSuccessView()
-                .environmentObject(navigationHelper)
-        }
         .background(
-            NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
-                HomeView()
+            NavigationLink(destination: ShopView(initialTotal: viewModel.totalCost), isActive: $navigateToShopView) {
+                EmptyView()
             }
-            .hidden()
         )
-        .onChange(of: navigateToHome) { oldValue, newValue in
-            if newValue {
-                presentationMode.wrappedValue.dismiss()
-            }
-        }
     }
 }
+
 
 struct MovieInfoSection: View {
     let movie: Movie
